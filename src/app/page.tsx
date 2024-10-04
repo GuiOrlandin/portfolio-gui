@@ -41,7 +41,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen p-8 pt-0 font-[family-name:var(--font-geist-sans)] bg-slate-900 smallPhone:p-2">
       <Header />
-      <main className="flex mt-12 justify-center gap-8 1100:flex-col">
+      <main className="flex mt-12 justify-center gap-10 1100:flex-col">
         <div className="flex flex-col flex-[2]">
           <div className="flex gap-5">
             <Image
@@ -64,7 +64,7 @@ export default async function Home() {
               Certificações
             </h2>
 
-            <div className="flex flex-col gap-2 mt-2 mr-8 p-2 rounded-md bg-gray-800">
+            <div className="flex flex-col gap-2 mt-2  p-2 rounded-md bg-gray-800">
               {profileData.certifications.map((certfication, index) => (
                 <div
                   key={index}
@@ -81,7 +81,7 @@ export default async function Home() {
         </div>
 
         <div className="flex flex-col flex-[3] text-gray-400 mb-2">
-          <div className="max-h-72 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
+          <div className="max-h-[360px] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
             {profileData.summary.split("\n").map((line, index) => (
               <p key={index} className="mb-2 text-xl">
                 {line.trim()}
@@ -89,8 +89,8 @@ export default async function Home() {
             ))}
           </div>
 
-          <div className="mb-6 smallPhone:mb-10">
-            <h2 className="text-gray-200  text-2xl mt-7 text-base font-bold">
+          <div className="smallPhone:mb-10">
+            <h2 className="text-gray-200  text-2xl mt-4 text-base font-bold">
               Tecnologias
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 mb-2 p-4 rounded-md bg-gray-800 1100:mb-">
