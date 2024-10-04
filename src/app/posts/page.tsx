@@ -43,7 +43,7 @@ export default async function Posts() {
               href={`https://github.com/GuiOrlandin/${project.title}`}
               className="flex font-bold text-white justify-end mt-4 hover:text-gray-400"
             >
-              Link para o github do projeto
+              Link para o repositório do projeto no GitHub
             </a>
           </div>
         ))}
