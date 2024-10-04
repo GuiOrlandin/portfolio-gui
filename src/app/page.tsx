@@ -1,9 +1,6 @@
 import Image from "next/image";
 import { linkedinData } from "../../request";
 
-import { TiSocialInstagram } from "react-icons/ti";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
 import {
   FaReact,
   FaNodeJs,
