@@ -52,8 +52,8 @@ export default async function Home() {
               height={120}
             />
             <div className="flex flex-col mb-4">
-              <h1 className="text-gray-200 text-4xl font-bold">{`${profileData.firstName} ${profileData.lastName}`}</h1>
-              <h2 className="text-gray-200 text-base font-bold">
+              <h1 className="flex text-gray-200 text-4xl font-bold smallPhone:text-2xl">{`${profileData.firstName} ${profileData.lastName}`}</h1>
+              <h2 className="text-gray-200 text-base font-bold smallPhone:text-sm">
                 {profileData.multiLocaleHeadline.pt}
               </h2>
             </div>
@@ -89,7 +89,7 @@ export default async function Home() {
             ))}
           </div>
 
-          <div className="mb-6">
+          <div className="mb-6 smallPhone:mb-10">
             <h2 className="text-gray-200  text-2xl mt-7 text-base font-bold">
               Tecnologias
             </h2>
