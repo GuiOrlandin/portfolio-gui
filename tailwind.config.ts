@@ -16,6 +16,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      scrollbarWidth: {
+        "extra-thin": "2px",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar")],

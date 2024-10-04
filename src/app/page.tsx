@@ -81,7 +81,7 @@ export default async function Home() {
         </div>
 
         <div className="flex flex-col flex-[3] text-gray-400 mb-2">
-          <div className="max-h-[360px] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
+          <div className="max-h-[360px] overflow-y-auto scrollbar-thin scrollbar-track-gray-200 scrollbar-thumb-gray-400">
             {profileData.summary.split("\n").map((line, index) => (
               <p key={index} className="mb-2 text-xl">
                 {line.trim()}
@@ -93,7 +93,7 @@ export default async function Home() {
             <h2 className="text-gray-200  text-2xl mt-4 text-base font-bold">
               Tecnologias
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 mb-2 p-4 rounded-md bg-gray-800 1100:mb-">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 mb-2 p-4 rounded-md bg-gray-800 1100:mb-8">
               {technologies.map((tech, index) => (
                 <div
                   key={index}
