@@ -11,6 +11,14 @@ import {
 } from "react-icons/fa";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 
+import { MdOutlineTimer } from "react-icons/md";
+
+import { GrAnalytics } from "react-icons/gr";
+
+import { GiThink } from "react-icons/gi";
+
+import { FaRegLightbulb } from "react-icons/fa";
+
 import {
   SiTypescript,
   SiStyledcomponents,
@@ -38,10 +46,29 @@ export default async function Home() {
     { name: "Prisma", icon: <SiPrisma size={24} color="black" /> },
   ];
 
+  const softSkills = [
+    {
+      name: "Gestão de tempo",
+      icon: <MdOutlineTimer size={24} color="#181717" />,
+    },
+    {
+      name: "Capacidade analítica",
+      icon: <GrAnalytics size={24} color="#181717" />,
+    },
+    {
+      name: "Atenção aos detalhes",
+      icon: <GiThink size={24} color="#181717" />,
+    },
+    {
+      name: "Tomada de decisão",
+      icon: <FaRegLightbulb size={24} color="#181717" />,
+    },
+  ];
+
   return (
     <div className="flex flex-col min-h-screen p-8 pt-0 font-[family-name:var(--font-geist-sans)] bg-slate-900 smallPhone:p-2">
       <Header />
-      <main className="flex mt-12 justify-center gap-10 1100:flex-col">
+      <main className="flex mt-12 justify-center gap-8 1100:flex-col">
         <div className="flex flex-col flex-[2]">
           <div className="flex gap-5">
             <Image
@@ -60,7 +87,7 @@ export default async function Home() {
           </div>
 
           <div>
-            <h2 className="text-gray-200  text-2xl mt-6 text-base font-bold mt-10">
+            <h2 className="text-gray-200  text-xl mt-6 text-base font-bold mt-10">
               Certificações
             </h2>
 
@@ -77,6 +104,24 @@ export default async function Home() {
                 </div>
               ))}
             </div>
+            <div>
+              <h2 className="text-gray-200  text-xl mt-6 text-base font-bold mt-10">
+                Soft skills
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 p-4 rounded-md bg-gray-800">
+                {softSkills.map((skills, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 p-2 bg-gray-700 rounded-md text-gray-200 hover:bg-gray-600 transition-colors duration-300"
+                  >
+                    {skills.icon}
+                    <span className="flex font-bold text-[12px]">
+                      {skills.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -90,7 +135,7 @@ export default async function Home() {
           </div>
 
           <div className="smallPhone:mb-10">
-            <h2 className="text-gray-200  text-2xl mt-4 text-base font-bold">
+            <h2 className="text-gray-200  text-xl mt-4 text-base font-bold">
               Tecnologias
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 mb-2 p-4 rounded-md bg-gray-800 1100:mb-8">
@@ -100,7 +145,9 @@ export default async function Home() {
                   className="flex items-center gap-2 p-2 bg-gray-700 rounded-md text-gray-200 hover:bg-gray-600 transition-colors duration-300"
                 >
                   {tech.icon}
-                  <span className="text-lg font-medium">{tech.name}</span>
+                  <span className="text-lg font-bold text-[14px]">
+                    {tech.name}
+                  </span>
                 </div>
               ))}
             </div>
