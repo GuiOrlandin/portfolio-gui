@@ -34,6 +34,7 @@ export const linkedinData = async (): Promise<linkedinDataResponse> => {
         "x-rapidapi-host": "li-data-scraper.p.rapidapi.com",
         "x-rapidapi-key": "be211cf800mshe0c6f5187f0d545p1ff966jsn11f1c8647ae8",
       },
+      next: { revalidate: 86400 },
     }
   );
 
