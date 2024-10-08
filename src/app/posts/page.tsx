@@ -27,10 +27,7 @@ export default async function Posts() {
               <Image
                 alt="project image"
                 src={`/${project.title}.png`}
-                layout="responsive"
-                width={16}
-                height={9}
-                objectFit="cover"
+                layout="fill"
                 objectPosition="center"
                 quality={100}
               />
