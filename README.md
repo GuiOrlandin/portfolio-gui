@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio
 
-## Getting Started
+Este projeto foi desenvolvido como uma plataforma para apresentar meus projetos e serve como meu portfólio pessoal. Ele inclui uma página de home, onde apresento minha trajetória, habilidades e algumas informações sobre mim, além de uma página de projetos, que lista meus principais trabalhos. Cada projeto é detalhado com informações sobre sua implementação, com links diretos para os repositórios no GitHub.
 
-First, run the development server:
+O frontend foi construído utilizando Next.js, uma escolha estratégica para otimizar o SEO e melhorar a performance geral da aplicação. A estilização foi feita com Tailwind CSS, uma ferramenta que apresenta facilidade no desenvolvimento de interfaces. Além disso, o projeto não só serve como meu portfólio pessoal, mas também como uma oportunidade de treinar e consolidar meus conhecimentos no uso do Tailwind.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Clonando o repositório
+
+```sh
+gh repo clone GuiOrlandin/portfolio-gui
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Instale as dependências
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Inicie a aplicação
 
-## Learn More
+```sh
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Estrutura do Projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Home
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Página principal com uma introdução sobre mim, minhas habilidades e meus interesses na área de desenvolvimento de software.
 
-## Deploy on Vercel
+### Projetos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Página que lista meus principais projetos, com links para os repositórios no GitHub, além de descrições e capturas de tela.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Objetivo
+
+Este portfólio foi desenvolvido com o objetivo de ser simples, rápido e eficiente, destacando meus projetos e habilidades de maneira clara e objetiva.

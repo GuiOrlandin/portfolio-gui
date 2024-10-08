@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Guilherme Orlandin",
   description: "Portfólio",
   icons: {
-    icon: "/fav-icon.svg", // Caminho para seu favicon
+    icon: "/fav-icon.svg",
   },
 };
 
