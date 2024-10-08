@@ -4,6 +4,8 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 import { BsFilePost } from "react-icons/bs";
 
+import { MdOpenInNew } from "react-icons/md";
+
 export default async function Posts() {
   const profileData = await linkedinData();
 
@@ -19,32 +21,36 @@ export default async function Posts() {
         {profileData.projects.items.map((project) => (
           <div
             key={project.title}
-            className="p-4 border-solid border-2 border-gray-400 rounded-md"
+            className=" border-solid border-2 border-gray-400 rounded-md"
           >
-            <div className="flex gap-4 mb-4">
+            <div className="relative w-full h-[300px]">
               <Image
-                alt="profile image"
-                src={profileData && profileData.profilePicture}
-                width={90}
-                height={120}
-                className="rounded-lg"
+                alt="project image"
+                src={`/${project.title}.png`}
+                layout="responsive"
+                width={16}
+                height={9}
+                objectFit="cover"
+                objectPosition="center"
+                quality={100}
               />
-              <div>
-                <h1 className="flex text-gray-200 text-2xl font-bold text-2xl">{`${profileData.firstName} ${profileData.lastName}`}</h1>
+            </div>
 
+            <div className="flex flex-col p-4 pt-0">
+              <div className="flex items-baseline justify-between pb-4">
                 <h1 className="text-gray-400 font-bold">{project.title}</h1>
+                <a
+                  href={`https://github.com/GuiOrlandin/${project.title}`}
+                  className=" font-bold text-white justify-end mt-4 hover:text-gray-400"
+                >
+                  <MdOpenInNew size={24} />
+                </a>
+              </div>
+
+              <div className="flex text-gray-400 pr-2 max-h-[140px] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-400 scrollbar-width-extra-thin">
+                {project.description}
               </div>
             </div>
-            <div className="flex text-gray-400 pr-2 max-h-[140px] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-400 scrollbar-width-extra-thin">
-              {project.description}
-            </div>
-
-            <a
-              href={`https://github.com/GuiOrlandin/${project.title}`}
-              className="flex font-bold text-white justify-end mt-4 hover:text-gray-400"
-            >
-              Link para o repositório do projeto no GitHub
-            </a>
           </div>
         ))}
       </div>
