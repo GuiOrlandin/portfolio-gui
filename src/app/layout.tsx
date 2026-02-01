@@ -1,24 +1,26 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Syne, DM_Sans } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
+import LangSync from "./components/lang-sync";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Guilherme Orlandin",
-  description: "Portfólio",
-  icons: {
-    icon: "/fav-icon.svg",
-  },
+  title: "Guilherme Orlandin | Full-Stack Developer",
+  description:
+    "Portfólio de Guilherme Orlandin — Desenvolvimento de Software com foco em React, Node.js e Next.js.",
+  icons: { icon: "/fav-icon.svg" },
 };
 
 export default function RootLayout({
@@ -27,10 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="pt-BR" className={`${syne.variable} ${dmSans.variable}`}>
+      <body className="antialiased font-sans min-h-screen bg-[var(--bg)]">
+        <Suspense fallback={null}>
+          <LangSync />
+        </Suspense>
         {children}
       </body>
     </html>

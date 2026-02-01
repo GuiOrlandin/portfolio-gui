@@ -8,13 +8,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ["var(--font-syne)", "system-ui", "sans-serif"],
+        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+      },
       screens: {
         "1100": { max: "1100px" },
         smallPhone: { max: "420px" },
       },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "var(--bg)",
+        foreground: "var(--text)",
       },
       scrollbarWidth: {
         "extra-thin": "2px",
