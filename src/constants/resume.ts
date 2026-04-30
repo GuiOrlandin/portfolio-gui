@@ -31,8 +31,13 @@ const resumeDataPt: ResumeData = {
       companyName: "Beta Online",
       title: "Frontend Developer",
       period: "maio de 2023 — Presente",
-      description:
-        "Atuação em desenvolvimento front-end com React e tecnologias modernas.",
+      description: `Atuação em desenvolvimento front-end com React e tecnologias modernas.
+
+• Construção de interfaces responsivas com React.js e TypeScript.
+• Integração do front-end com APIs externas e serviços internos de back-end.
+• Contribuição para o Storybook e padronização de padrões de componentes.
+• Otimização de performance e experiência do usuário.
+• Atuação temporária como Tech Lead, coordenando o time durante a ausência do líder principal.`,
     },
     {
       companyName: "DFCom Software House",
