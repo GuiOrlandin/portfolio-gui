@@ -1,13 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Suspense } from "react";
+import Footer from "@/app/components/footer";
+import Header from "@/app/components/header";
+import Reveal from "@/app/components/reveal";
 import { getResumeData } from "@/constants/resume";
 import { getTranslations } from "@/constants/translations";
 import type { ProjetosProps } from "@/types/pages";
 import type { Locale } from "@/types/resume";
-import Footer from "../components/footer";
-import Header from "../components/header";
-import { BsFilePost } from "react-icons/bs";
+import Image from "next/image";
+import Link from "next/link";
+import { Suspense } from "react";
 import { MdOpenInNew } from "react-icons/md";
 
 export default function Projetos(props: ProjetosProps) {
@@ -16,59 +16,68 @@ export default function Projetos(props: ProjetosProps) {
   const t = getTranslations(locale);
 
   return (
-    <div className="min-h-screen flex flex-col bg-mesh font-sans">
-      <Suspense fallback={<header className="h-14 border-b border-[var(--border)] bg-[var(--bg)]/80" />}>
+    <div className="flex min-h-dvh flex-col bg-cinema">
+      <Suspense
+        fallback={
+          <header className="h-14 border-b border-[var(--border)] bg-[var(--bg)]/80" />
+        }
+      >
         <Header />
       </Suspense>
-      <main className="flex-1 max-w-5xl mx-auto w-full px-6 py-12 smallPhone:px-4 smallPhone:py-8">
-        <h1 className="font-display text-3xl sm:text-4xl font-bold text-[var(--text)] mb-10 flex items-center gap-3">
-          <BsFilePost className="text-[var(--accent)]" size={32} />
-          {t.sections.projects}
-        </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-12">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-16 smallPhone:px-4 smallPhone:py-10">
+        <Reveal>
+          <p className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
+            Archive
+          </p>
+          <h1 className="font-display text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight text-[var(--text)]">
+            {t.sections.projects}
+          </h1>
+          <p className="mt-4 max-w-xl text-[var(--text-muted)]">
+            {locale === "pt"
+              ? "Explorações e entregas — o detalhe narrativo está na home."
+              : "Explorations and deliveries — the narrative detail lives on the home page."}
+          </p>
+        </Reveal>
+
+        <ul className="mt-14 divide-y divide-[var(--border)] border-t border-[var(--border)]">
           {profileData.projects.items.map((project, index) => (
-            <article
-              key={project.title}
-              className="rounded-2xl bg-[var(--bg-card)] border border-[var(--border)] overflow-hidden card-hover flex flex-col"
-              style={{
-                animation: "fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards",
-                animationDelay: `${index * 0.08}s`,
-                opacity: 0,
-              }}
-            >
-              <div className="relative w-full aspect-[4/3] bg-[var(--bg-elevated)]">
-                <Image
-                  alt={project.title}
-                  src={`/${project.title}.png`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="flex flex-col flex-1 p-5">
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <h2 className="font-display font-semibold text-[var(--text)] text-lg">
-                    {project.title}
-                  </h2>
-                  <Link
-                    href={`https://github.com/GuiOrlandin/${project.title}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg text-[var(--text-muted)] hover:text-[var(--accent)] hover:bg-[var(--accent-dim)] transition-colors shrink-0"
-                    aria-label={t.viewOnGitHub(project.title)}
-                  >
-                    <MdOpenInNew size={22} />
-                  </Link>
+            <Reveal key={project.title} delayMs={index * 40}>
+              <li className="grid gap-6 py-8 md:grid-cols-12 md:items-center md:gap-8">
+                <div className="relative aspect-[16/10] overflow-hidden bg-[var(--bg-elevated)] md:col-span-4">
+                  <Image
+                    alt={project.title}
+                    src={`/${project.title}.png`}
+                    fill
+                    className="object-cover opacity-90 transition-transform duration-500 hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
-                <p className="text-[var(--text-muted)] text-sm leading-relaxed max-h-[140px] overflow-y-auto scrollbar-thin">
-                  {project.description}
-                </p>
-              </div>
-            </article>
+                <div className="md:col-span-8">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <h2 className="font-display text-xl font-semibold text-[var(--text)] md:text-2xl">
+                      {project.title}
+                    </h2>
+                    <Link
+                      href={`https://github.com/GuiOrlandin/${project.title}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer inline-flex min-h-11 min-w-11 items-center justify-center text-[var(--text-muted)] transition-colors duration-200 hover:text-[var(--accent)]"
+                      aria-label={t.viewOnGitHub(project.title)}
+                    >
+                      <MdOpenInNew size={22} />
+                    </Link>
+                  </div>
+                  <p className="mt-3 max-w-2xl text-[var(--text-muted)] leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+              </li>
+            </Reveal>
           ))}
-        </div>
+        </ul>
       </main>
+
       <Footer />
     </div>
   );

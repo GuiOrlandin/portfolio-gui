@@ -3,36 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0a0a0c;
-  --bg-elevated: #12121a;
-  --bg-card: #16161f;
-  --border: rgba(234, 179, 8, 0.12);
-  --border-hover: rgba(234, 179, 8, 0.35);
-  --text: #f4f4f5;
-  --text-muted: #a1a1aa;
-  --accent: #eab308;
-  --accent-dim: rgba(234, 179, 8, 0.15);
-  --accent-glow: rgba(234, 179, 8, 0.25);
+  --bg: #0c0e14;
+  --bg-elevated: #141824;
+  --bg-card: #1a1f2e;
+  --border: rgba(148, 163, 184, 0.14);
+  --border-hover: rgba(148, 163, 184, 0.28);
+  --text: #e8eaf0;
+  --text-muted: #9aa3b5;
+  --accent: #3b82f6;
+  --accent-dim: rgba(59, 130, 246, 0.14);
+  --on-accent: #0c0e14;
+  --focus-ring: #93c5fd;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
   color: var(--text);
   background: var(--bg);
-  font-feature-settings: "ss01", "ss02", "cv01", "cv02";
 }
 
-.bg-mesh {
+.bg-cinema {
   background-color: var(--bg);
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, var(--accent-dim), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(234, 179, 8, 0.06), transparent),
-    radial-gradient(ellipse 50% 30% at 0% 50%, rgba(234, 179, 8, 0.04), transparent);
+    radial-gradient(ellipse 90% 55% at 70% -10%, rgba(59, 130, 246, 0.18), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 0% 30%, rgba(30, 58, 138, 0.22), transparent 50%),
+    radial-gradient(ellipse 40% 35% at 100% 80%, rgba(15, 23, 42, 0.9), transparent 45%),
+    linear-gradient(180deg, #0c0e14 0%, #0a0c12 50%, #0c0e14 100%);
+}
+
+.section-pad {
+  padding-block: clamp(4rem, 12vh, 8rem);
 }
 
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -41,25 +56,49 @@ body {
 }
 
 .animate-reveal {
-  animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fade-in-up 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
 }
 
-.animate-reveal-1 { animation-delay: 0.05s; opacity: 0; }
-.animate-reveal-2 { animation-delay: 0.12s; opacity: 0; }
-.animate-reveal-3 { animation-delay: 0.19s; opacity: 0; }
-.animate-reveal-4 { animation-delay: 0.26s; opacity: 0; }
-.animate-reveal-5 { animation-delay: 0.33s; opacity: 0; }
-.animate-reveal-6 { animation-delay: 0.4s; opacity: 0; }
-.animate-reveal-7 { animation-delay: 0.47s; opacity: 0; }
-.animate-reveal-8 { animation-delay: 0.54s; opacity: 0; }
-
-.card-hover {
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+.animate-reveal-1 {
+  animation-delay: 0.05s;
 }
-.card-hover:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 0 0 1px var(--border-hover), 0 12px 40px -12px var(--accent-glow);
-  transform: translateY(-2px);
+.animate-reveal-2 {
+  animation-delay: 0.14s;
+}
+.animate-reveal-3 {
+  animation-delay: 0.24s;
+}
+.animate-reveal-4 {
+  animation-delay: 0.34s;
+}
+
+.reveal-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-reveal,
+  .reveal-scroll {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 @layer utilities {
@@ -74,9 +113,7 @@ body {
 }
 .scrollbar-thin::-webkit-scrollbar-track {
   background: var(--bg-elevated);
-  border-radius: 3px;
 }
 .scrollbar-thin::-webkit-scrollbar-thumb {
   background: var(--border-hover);
-  border-radius: 3px;
 }

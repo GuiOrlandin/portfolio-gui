@@ -9,6 +9,10 @@
 # testing
 /coverage
 
+#agents
+.agents
+.claude
+
 # next.js
 /.next/
 /out/

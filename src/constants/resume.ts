@@ -2,17 +2,15 @@ import type { Locale, ResumeData } from "@/types/resume";
 
 const PROFILE_PICTURE = "/profile.png";
 
-const SUMMARY_PT = `Olá, sou desenvolvedor full-stack com experiência em React.js, Next.js e Node.js, adquirida por meio de projetos práticos e atuação profissional em frentes front-end e full stack, disponíveis no meu GitHub. Minha capacidade de integrar conhecimentos científicos complexos com desenvolvimento de
-software me posiciona como um profissional multidisciplinar. Estou entusiasmado com a oportunidade de contribuir, trazendo uma combinação única de expertise técnica e científica. Agradeço a consideração e aguardo a possibilidade de discutir como minhas habilidades podem beneficiar sua
-equipe.`;
+const SUMMARY_PT = `Desenvolvedor Full Stack com mais de três anos de experiência em React, Next.js, Node.js e TypeScript, atuando em produtos reais com foco em arquitetura, APIs REST, performance e confiabilidade em fluxos críticos — checkout, pagamentos e PDV. Experiência em componentização e design system (Storybook/MUI), integrações com serviços de terceiros e times ágeis remotos. Perfil analítico (graduação e mestrado em Química), com histórico em produção e projetos no GitHub.`;
 
-const SUMMARY_EN = `Hello, I am a full-stack developer with experience in React.js, Next.js, and Node.js, gained through hands-on projects and professional work across front-end and full-stack roles, available on my GitHub. My ability to integrate complex scientific knowledge with software development positions me as a multidisciplinary professional. I am excited about the opportunity to contribute, bringing a unique combination of technical and scientific expertise. Thank you for your consideration, and I look forward to the possibility of discussing how my skills can benefit your team.`;
+const SUMMARY_EN = `Full-stack developer with over three years of experience in React, Next.js, Node.js, and TypeScript, shipping real products with a focus on architecture, REST APIs, performance, and reliability in critical flows — checkout, payments, and POS. Experience with componentization and design systems (Storybook/MUI), third-party integrations, and remote agile teams. Analytical background (BSc and MSc in Chemistry), with production history and personal projects on GitHub.`;
 
 const HEADLINE_PT =
-  "Desenvolvimento de Software | Full-Stack Developer com Foco em React, Node.js e Next.js.";
+  "Desenvolvedor Full Stack | React, Next.js, Node.js e TypeScript — arquitetura, APIs e fluxos críticos.";
 
 const HEADLINE_EN =
-  "Software Development | Full-Stack Developer with a Focus on React, Node.js and Next.js.";
+  "Full-Stack Developer | React, Next.js, Node.js & TypeScript — architecture, APIs, and critical flows.";
 
 const resumeDataPt: ResumeData = {
   firstName: "Guilherme",
@@ -21,49 +19,68 @@ const resumeDataPt: ResumeData = {
   summary: SUMMARY_PT,
   headline: HEADLINE_PT,
   multiLocaleHeadline: { pt: HEADLINE_PT },
-  educations: [],
+  educations: [
+    {
+      schoolName: "Universidade Estadual de Londrina",
+      degree: "Graduação",
+      fieldOfStudy: "Química",
+    },
+    {
+      schoolName: "Universidade Estadual Paulista (UNESP)",
+      degree: "Mestrado",
+      fieldOfStudy: "Química",
+    },
+  ],
   certifications: [
-    { name: "Bootcamp - Discover", authority: "Rocketseat" },
-    { name: "Bootcamp - Ignite", authority: "Rocketseat" },
+    {
+      name: "Bootcamp Discover — JavaScript, HTML e CSS",
+      authority: "Rocketseat",
+    },
+    {
+      name: "Bootcamp Ignite — Node.js, React.js e Next.js",
+      authority: "Rocketseat",
+    },
   ],
   fullPositions: [
     {
       companyName: "Beta Online",
-      title: "Frontend Developer",
-      period: "maio de 2023 — Presente",
-      description: `Atuação em desenvolvimento front-end com React e tecnologias modernas.
+      title: "Desenvolvedor Front-end | React · Next.js",
+      period: "maio/2023 — Presente · Remoto",
+      description: `Desenvolvimento e evolução do produto com React, Next.js e TypeScript, incluindo migração/padronização JS → TS para reduzir bugs em runtime e melhorar refactors e contratos entre módulos.
 
-• Construção de interfaces responsivas com React.js e TypeScript.
-• Integração do front-end com APIs externas e serviços internos de back-end.
-• Contribuição para o Storybook e padronização de padrões de componentes.
-• Otimização de performance e experiência do usuário.
-• Atuação temporária como Tech Lead, coordenando o time durante a ausência do líder principal.`,
+• Integrações de pagamentos/checkout com Pagar.me, Iugu, Mercado Pago e DomPagamentos (fluxos críticos, tokenização/processamento e tratamento robusto de falhas).
+• Integração do front-end com APIs externas e back-ends internos, garantindo consistência de payloads, estados de carregamento/erro e UX confiável.
+• Storybook para documentação e padronização de componentes; UI com MUI com foco em consistência visual e reuso.
+• Formulários com Formik e validações com Zod; melhorias de performance/UX (redução de re-renders e ajustes em validações que impactavam a fluidez dos inputs).
+• Contribuição nas decisões de arquitetura front-end (organização de módulos, estado, componentização e padronização), com foco em escalabilidade, manutenção e redução de débito técnico.
+• Arquitetura e organização da camada de estado — incluindo refino de Context API para reduzir re-renders.
+• Otimização de performance e experiência do usuário em telas e fluxos de alto uso.
+• Colaboração com UX/UI na construção de interfaces (alinhamento em Figma, estados e feedbacks na UI).
+• Atuação temporária como Tech Lead, coordenando o time durante ausência do líder principal (priorização, alinhamentos técnicos e continuidade da entrega).`,
     },
     {
       companyName: "DFCom Software House",
-      title: "Full-stack Developer",
-      period: "janeiro de 2023 — maio de 2023 (5 meses)",
-      description: `Atuação end-to-end no desenvolvimento e manutenção do PDV (Ponto de Venda), engineering completo da stack: React.js + Node.js + MongoDB.
+      title: "Desenvolvedor Full Stack | React · Node",
+      period: "jan/2023 — maio/2023 · Remoto",
+      description: `Desenvolvimento e manutenção do módulo de PDV em aplicação full stack com React, Node.js/Nest.js, Prisma e MongoDB, cobrindo fluxos de venda, transações e notas fiscais.
 
-• Front-end do PDV: Desenvolvimento de interfaces com React.js e Styled-Components, gerenciamento de estado global com Zustand e Context API para o fluxo de vendas.
-
-• Gerenciamento de Estado do Servidor: Implementação de React Query para cache, sincronização em tempo real e atualização de estados de transações e notas fiscais.
-
-• API e Back-end: Construção de APIs RESTful com Node.js para operações do PDV e integração com o módulo de tratamento de notas.
-
-• Modelagem de Dados: Projeto e gestão de dados no MongoDB, assegurando performance e consistência nas operações de venda e emissão de notas.`,
+• Participação na definição da arquitetura da solução, com Redis para otimização de fluxos operacionais e transactions para maior confiabilidade e consistência nas operações financeiras do PDV.
+• Criação e integração de APIs REST com Nest.js e Prisma (persistência/modelagem e operações consistentes no banco).
+• React Query para cache, sincronização e atualização de estado do servidor em fluxos de transações e notas fiscais.
+• Gerenciamento de estado com Zustand e Context API no fluxo de vendas; estilização com Styled Components.
+• Implementação de componentes reutilizáveis e responsivos no front-end, priorizando legibilidade e manutenção.`,
     },
   ],
   projects: {
     items: [
       {
         title: "Comu-feed",
-        description:
-          "Projeto de feed comunitário desenvolvido com React e Node.js.",
+        description: "Feed comunitário full-stack com React e Node.js.",
       },
       {
         title: "e-commerce-with-stripe",
-        description: "E-commerce com integração Stripe para pagamentos.",
+        description:
+          "Projeto full-stack aplicando conhecimentos em gateways de pagamento (Stripe), com RAG para pesquisa de projetos — ainda em andamento.",
       },
       {
         title: "E-commerce",
@@ -72,11 +89,13 @@ const resumeDataPt: ResumeData = {
       },
       {
         title: "find-a-friend",
-        description: "Plataforma para conectar pessoas e causas.",
+        description:
+          "API e aplicação para conectar pessoas a pets para adoção.",
       },
       {
         title: "GymPass",
-        description: "Sistema de gestão de academias e planos.",
+        description:
+          "API de check-in em academias com regras de negócio e Nest.js.",
       },
     ],
   },
@@ -89,61 +108,80 @@ const resumeDataEn: ResumeData = {
   summary: SUMMARY_EN,
   headline: HEADLINE_EN,
   multiLocaleHeadline: { pt: HEADLINE_EN },
-  educations: [],
+  educations: [
+    {
+      schoolName: "State University of Londrina (UEL)",
+      degree: "Bachelor's",
+      fieldOfStudy: "Chemistry",
+    },
+    {
+      schoolName: "São Paulo State University (UNESP)",
+      degree: "Master's",
+      fieldOfStudy: "Chemistry",
+    },
+  ],
   certifications: [
-    { name: "Bootcamp - Discover", authority: "Rocketseat" },
-    { name: "Bootcamp - Ignite", authority: "Rocketseat" },
+    {
+      name: "Discover Bootcamp — JavaScript, HTML & CSS",
+      authority: "Rocketseat",
+    },
+    {
+      name: "Ignite Bootcamp — Node.js, React.js & Next.js",
+      authority: "Rocketseat",
+    },
   ],
   fullPositions: [
     {
       companyName: "Beta Online",
-      title: "Frontend Developer",
-      period: "May 2023 — Present",
-      description: `Working on front-end development with React and modern technologies.
+      title: "Front-end Developer | React · Next.js",
+      period: "May 2023 — Present · Remote",
+      description: `Product development and evolution with React, Next.js, and TypeScript, including JS → TS migration/standardization to cut runtime bugs and improve refactors and module contracts.
 
-• Building responsive interfaces with React.js and TypeScript.
-• Integrating the front end with external APIs and internal back-end services.
-• Contributing to Storybook and standardizing component patterns.
-• Optimizing performance and user experience.
-• Temporarily acting as Tech Lead, coordinating the team during the primary lead's absence.`,
+• Checkout/payment integrations with Pagar.me, Iugu, Mercado Pago, and DomPagamentos (critical flows, tokenization/processing, and robust failure handling).
+• Front-end integration with external APIs and internal backends, ensuring consistent payloads, loading/error states, and reliable UX.
+• Storybook for component documentation and standards; MUI UI focused on visual consistency and reuse.
+• Forms with Formik and Zod validation; performance/UX improvements (fewer re-renders and validation tweaks that affected input fluidity).
+• Contributions to front-end architecture decisions (module organization, state, componentization, and standards) aimed at scalability, maintainability, and less technical debt.
+• Project/state-layer architecture — including Context API refinements to reduce re-renders.
+• Performance and UX optimization on high-traffic screens and flows.
+• Collaboration with UX/UI on interfaces (Figma alignment, UI states and feedback).
+• Temporary Tech Lead coverage during the main lead’s absence (prioritization, technical alignment, and delivery continuity).`,
     },
     {
       companyName: "DFCom Software House",
-      title: "Full-stack Developer",
-      period: "January 2023 — May 2023",
-      description: `End-to-end development and maintenance of the POS (Point of Sale) system, full-stack engineering with React.js, Node.js, and MongoDB.
+      title: "Full-Stack Developer | React · Node",
+      period: "Jan 2023 — May 2023 · Remote",
+      description: `Built and maintained the POS module in a full-stack app with React, Node.js/Nest.js, Prisma, and MongoDB — sales, transactions, and invoices.
 
-• POS Front-end: Building interfaces with React.js and Styled Components; global state management with Zustand and Context API for the sales flow.
-
-• Server State Management: Implementing React Query for caching, real-time sync, and updates of transaction and invoice states.
-
-• API and Back-end: Building RESTful APIs with Node.js for POS operations and integration with the invoice handling module.
-
-• Data Modeling: Designing and managing data in MongoDB, ensuring performance and consistency for sales and invoice operations.`,
+• Helped define the solution architecture, with Redis to optimize operational flows and transactions for stronger reliability and consistency in POS financial operations.
+• Built and integrated REST APIs with Nest.js and Prisma (persistence/modeling and consistent database operations).
+• React Query for caching, sync, and server-state updates in transaction and invoice flows.
+• State management with Zustand and Context API in the sales flow; styling with Styled Components.
+• Reusable, responsive front-end components with a focus on readability and maintainability.`,
     },
   ],
   projects: {
     items: [
       {
         title: "Comu-feed",
-        description: "Community feed project built with React and Node.js.",
+        description: "Community feed built with React and Node.js.",
       },
       {
         title: "e-commerce-with-stripe",
-        description: "E-commerce with Stripe payment integration.",
+        description:
+          "Full-stack project applying payment gateway knowledge (Stripe), with RAG for project search — still in progress.",
       },
       {
         title: "E-commerce",
-        description:
-          "Full-stack online store with cart and product management.",
+        description: "Full-stack store with cart and product management.",
       },
       {
         title: "find-a-friend",
-        description: "Platform to connect people and causes.",
+        description: "API and app to connect people with pets for adoption.",
       },
       {
         title: "GymPass",
-        description: "Gym and membership management system.",
+        description: "Gym check-in API with business rules and Nest.js.",
       },
     ],
   },

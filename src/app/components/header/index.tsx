@@ -1,10 +1,9 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { BsFilePost } from "react-icons/bs";
-import { FaHome } from "react-icons/fa";
 import { getTranslations } from "@/constants/translations";
 import type { Locale } from "@/types/resume";
+import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function Header() {
   const router = useRouter();
@@ -16,63 +15,74 @@ export default function Header() {
   const isHome = pathname === "/";
   const isProjetos = pathname === "/projetos";
 
-  const navUrl = (path: string) =>
+  const withLang = (path: string) =>
     path === "/" ? `/?lang=${locale}` : `/projetos?lang=${locale}`;
 
   const setLang = (lang: Locale) => {
-    const query = lang === "pt" ? "?lang=pt" : "?lang=en";
-    router.push(`${pathname}${query}`);
+    router.push(`${pathname}?lang=${lang}`);
   };
 
   return (
-    <header className="sticky top-0 z-10 border-b border-[var(--border)] bg-[var(--bg)]/80 backdrop-blur-md">
-      <div className="max-w-5xl mx-auto px-6 smallPhone:px-4 flex justify-end items-center gap-2 py-3">
-        <div className="flex gap-1 mr-2">
-          <button
-            onClick={() => router.push(navUrl("/"))}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors ${
+    <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--bg)]/75 backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3 smallPhone:px-4">
+        <Link
+          href={withLang("/")}
+          className="font-display text-sm font-semibold tracking-wide text-[var(--text)] transition-colors duration-200 hover:text-[var(--accent)] cursor-pointer"
+        >
+          Guilherme Orlandin
+        </Link>
+
+        <nav className="flex items-center gap-1" aria-label="Primary">
+          <Link
+            href={withLang("/")}
+            className={`cursor-pointer px-3 py-2 text-sm font-medium transition-colors duration-200 min-h-11 inline-flex items-center ${
               isHome
-                ? "bg-[var(--accent-dim)] text-[var(--accent)] border border-[var(--border)]"
-                : "text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--bg-card)]"
+                ? "text-[var(--accent)]"
+                : "text-[var(--text-muted)] hover:text-[var(--text)]"
             }`}
           >
-            <FaHome size={18} />
             {t.nav.home}
-          </button>
-          <button
-            onClick={() => router.push(navUrl("/projetos"))}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-colors ${
+          </Link>
+          <Link
+            href={withLang("/projetos")}
+            className={`cursor-pointer px-3 py-2 text-sm font-medium transition-colors duration-200 min-h-11 inline-flex items-center ${
               isProjetos
-                ? "bg-[var(--accent-dim)] text-[var(--accent)] border border-[var(--border)]"
-                : "text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--bg-card)]"
+                ? "text-[var(--accent)]"
+                : "text-[var(--text-muted)] hover:text-[var(--text)]"
             }`}
           >
-            <BsFilePost size={18} />
             {t.nav.projects}
-          </button>
-        </div>
-        <div className="flex border border-[var(--border)] rounded-lg p-0.5 bg-[var(--bg-card)]">
-          <button
-            onClick={() => setLang("pt")}
-            className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
-              locale === "pt"
-                ? "bg-[var(--accent)] text-[var(--bg)]"
-                : "text-[var(--text-muted)] hover:text-[var(--text)]"
-            }`}
+          </Link>
+
+          <div
+            className="ml-2 flex border border-[var(--border)] p-0.5"
+            role="group"
+            aria-label="Language"
           >
-            PT
-          </button>
-          <button
-            onClick={() => setLang("en")}
-            className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
-              locale === "en"
-                ? "bg-[var(--accent)] text-[var(--bg)]"
-                : "text-[var(--text-muted)] hover:text-[var(--text)]"
-            }`}
-          >
-            EN
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={() => setLang("pt")}
+              className={`cursor-pointer min-h-9 min-w-9 px-2.5 text-xs font-semibold transition-colors duration-200 ${
+                locale === "pt"
+                  ? "bg-[var(--accent)] text-[var(--on-accent)]"
+                  : "text-[var(--text-muted)] hover:text-[var(--text)]"
+              }`}
+            >
+              PT
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              className={`cursor-pointer min-h-9 min-w-9 px-2.5 text-xs font-semibold transition-colors duration-200 ${
+                locale === "en"
+                  ? "bg-[var(--accent)] text-[var(--on-accent)]"
+                  : "text-[var(--text-muted)] hover:text-[var(--text)]"
+              }`}
+            >
+              EN
+            </button>
+          </div>
+        </nav>
       </div>
     </header>
   );

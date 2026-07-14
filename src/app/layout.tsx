@@ -1,25 +1,25 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Archivo, Space_Grotesk } from "next/font/google";
 import { Suspense } from "react";
-import "./globals.css";
 import LangSync from "./components/lang-sync";
+import "./globals.css";
 
-const syne = Syne({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-archivo",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Guilherme Orlandin | Full-Stack Developer",
   description:
-    "Portfólio de Guilherme Orlandin — Desenvolvimento de Software com foco em React, Node.js e Next.js.",
+    "Desenvolvedor Full Stack com React, Next.js, Node.js e TypeScript — arquitetura, APIs REST e confiabilidade em checkout, pagamentos e PDV.",
   icons: { icon: "/fav-icon.svg" },
 };
 
@@ -29,8 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${syne.variable} ${dmSans.variable}`}>
-      <body className="antialiased font-sans min-h-screen bg-[var(--bg)]">
+    <html
+      lang="pt-BR"
+      className={`${archivo.variable} ${spaceGrotesk.variable}`}
+    >
+      <body className="min-h-dvh bg-[var(--bg)] font-sans antialiased">
         <Suspense fallback={null}>
           <LangSync />
         </Suspense>
